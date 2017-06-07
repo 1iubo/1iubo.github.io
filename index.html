@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>太极</title>
+</head>
+<style type="text/css">
+	body{
+		overflow: auto;
+	}
+	div{
+		position: fixed;/*absolute滚动条会跳*/
+		/*top: 50%;
+		left: 50%;
+		transform: translate(-50%,-50%);*/
+		top: 0;right: 0;bottom: 0;left: 0;
+		margin: auto;
+		/*以上为两种万能居中大法，无需计算像素值*/
+		width: 0;
+		height: 200px;
+		border-left: 100px solid white;
+		border-right: 100px solid black;
+		border-radius: 50%;
+		box-shadow: 5px 5px 30px rgba(0,0,0,0.5),-5px -5px 30px rgba(0,0,0,0.5);
+		transition: transform 5s ease-in-out;
+	}
+	div:before,div:after{
+		position: absolute;
+		transform: translate(-50%);
+		box-sizing: border-box;
+		content: "";
+		display: block;
+		width: 100px;
+		height: 100px;
+		border-radius: 50%;
+		border-style: solid;
+		border-width: 37.5px;/*鱼眼边框宽度是半径50的四分之三，鱼眼内容部分占四分之一*/
+		/*阴阳眼的半径是整个太极大园半径的八分之一*/
+	}
+	div:before{
+		background: black url("https://tb2.bdstatic.com/tb/editor/images/face/i_f16.png");
+		border-color: white;
+		top: 0;/*这行不写也行*/
+	}
+	div:after{
+		background: white url("https://tb2.bdstatic.com/tb/editor/images/face/i_f25.png");
+		border-color: black;
+		bottom: 0;
+	}
+	div:hover{
+		transform: rotate(3600deg) scale(2);
+	}
+</style>
+<body>
+	<div></div>
+</body>
+</html>
